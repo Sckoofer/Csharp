@@ -1,0 +1,57 @@
+/*Esse questionário permite ao usuário a criação de sua próprias
+perguntas e respostas*/
+
+using System;
+
+class project
+{
+	
+	static void Main()
+	{
+		string[] perguntas = new string[5];
+		string[] respostas = new string[5];
+		int NumPerg = 0;
+		int NumResp = 0;
+		
+		
+		Console.WriteLine("Nova versao");
+		Console.WriteLine("Digite em números quantas perguntas deseja fazer?");
+		NumPerg = int.Parse(Console.ReadLine());
+		
+		Console.Clear();
+		
+		for(int i = 0; i < NumPerg; i++){
+			Console.WriteLine("Digite sua(s) pergunta(s)");
+			perguntas[i] = Console.ReadLine();
+			Console.WriteLine("Digite o numero de respostas para sua pergunta");
+			NumResp = int.Parse(Console.ReadLine());
+			for(int g = 0; g < NumResp; g++){
+				Console.WriteLine("Digite sua(s) resposta(s)");
+				respostas[i] = Console.ReadLine();
+			}
+			
+		Console.WriteLine("As perguntas e respostas numero {0} foram salvas", i);
+		Console.Read();
+		
+		}
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		Console.Read();
+	}
+
+
+
+}
