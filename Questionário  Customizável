@@ -20,36 +20,39 @@ class project
 		
 		Console.Clear();
 		
-		for(int i = 0; i < NumPerg; i++){
+		for(int i = 0; i < NumPerg; i++){ //loop para receber as perguntas
 			Console.WriteLine("Digite sua(s) pergunta(s)");
 			perguntas[i] = Console.ReadLine();
-			Console.WriteLine("Digite o numero de respostas para sua pergunta");
+			
+			
+			Console.WriteLine("Digite o numero de respostas para essa pergunta");
 			NumResp = int.Parse(Console.ReadLine());
-			for(int g = 0; g < NumResp; g++){
+			
+			for(int g = 0; g < NumResp; g++){ //loop para receber as respostas
 				Console.WriteLine("Digite sua(s) resposta(s)");
 				respostas[i] = Console.ReadLine();
 			}
 			
-		Console.WriteLine("As perguntas e respostas numero {0} foram salvas", i);
+			
+			
+			
+		Console.WriteLine("As perguntas e respostas numero {0} foram salvas", i+1);
 		Console.Read();
-		
 		}
 		
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		
+		Console.WriteLine("Perguntas e Respostas finalizadas");
+		Console.WriteLine("---------------------------------");
 		Console.Read();
+		for(int i = 0; i < NumPerg; i++){
+			Console.WriteLine("Pergunta número: {0} ", i+1);
+			Console.WriteLine(perguntas[i]);
+			
+		}
+		
+			
+	
+		Console.ReadKey();
 	}
 
 
