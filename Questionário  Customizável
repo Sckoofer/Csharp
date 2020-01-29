@@ -1,5 +1,5 @@
 /*Esse questionário permite ao usuário a criação de sua próprias
-perguntas e respostas. (No momento o código ainda n funciona)*/
+perguntas e respostas. (30% concluído)*/
 
 using System;
 
@@ -33,10 +33,11 @@ class project
 			perguntas[i] = Console.ReadLine();
 		}
 		
-		Console.WriteLine("As perguntas foram salvas:");
+		Console.WriteLine("As perguntas foram salvas");
 		
 		while(g <= NumPerg){
 			
+			Console.WriteLine("Pergunta numero {0}:", i);
 			Console.WriteLine(perguntas[g]);
 			
 			g++;
