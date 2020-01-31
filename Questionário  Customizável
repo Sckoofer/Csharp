@@ -1,5 +1,7 @@
 /*Esse questionário permite ao usuário a criação de sua próprias
-perguntas e respostas. (30% concluído)*/
+perguntas e respostas. 
+-Adicionado tratamento de erro entre as linhas 21 e 42
+(35% concluído)*/
 
 using System;
 
@@ -14,13 +16,35 @@ class project
 		int alteracao = 1;
 		int p = 0; //contadores
 		
+		
 	
 		
 		
-		
+		retorno: // Ponto de retorno do erro
+		Console.Clear();
 		Console.WriteLine("Nova versao");
 		Console.WriteLine("Digite em números quantas perguntas deseja fazer?");
-		NumPerg = int.Parse(Console.ReadLine()); //Aqui é definido a quantidade de perguntas
+		
+		try //Tratamento de erros, Exception;
+		{
+			NumPerg = int.Parse(Console.ReadLine()); //Aqui é definido a quantidade de perguntas
+			if(NumPerg <= 0 || NumPerg > 0){
+				Console.WriteLine("Os numeros devem ser maior que 0 e menor que 31");
+				Console.WriteLine("Aperte uma tecla");
+				Console.ReadKey();
+				goto retorno;		
+			}
+		}	
+		catch (Exception)
+		{
+			Console.WriteLine("Use apenas numeros");
+			Console.WriteLine("Aperte uma tecla");
+			Console.ReadKey();
+			goto retorno;
+			
+		}
+		
+		
 		
 		
 		
