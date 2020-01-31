@@ -74,82 +74,101 @@ class project
 		{
 			Console.WriteLine("Pergunta numero {0}:\n{1}",p,perguntas[p++]);
 		}
+
+		
 	
 	
 		
 		
 		
+
 		
-		
-		retorno2://2º tratamento de erros + alteração de perguntas
-		Console.Clear();
-		Console.WriteLine("Para alterar alguma pergunta, digite o número dela");
-	
-		try
+		while(retorno)
 		{
-			Console.WriteLine("Para não alterar nada, digite: 1000 e tecle enter");
-			alteracao = int.Parse(Console.ReadLine());
-				
-			if(alteracao == 1000){goto avanca;} //Pula e exceção de erros, vai pra linha 111
-				
-				
-			if(alteracao <=0 || alteracao > NumPerg )
+		
+			
+			Console.WriteLine("Para alterar alguma pergunta, digite o número dela");
+			try
 			{
-				Console.WriteLine("Use apenas os numeros a partir de");
-				Console.WriteLine("1 até {0}", NumPerg);
+				Console.WriteLine("Para não alterar nada, digite: 1000 e tecle enteeeer");
+				alteracao = int.Parse(Console.ReadLine());
+					
+				if(alteracao == 1000)
+				{
+					retorno = false;
+				} 
+				
+				else if(alteracao < 0 || alteracao > NumPerg )
+				{
+					Console.WriteLine("Use apenas os numeros a partir de");
+					Console.WriteLine("0 até {0}", NumPerg);
+					Console.WriteLine("Ou digite 1000 para sair");
+					Console.ReadKey();
+				}
+				
+				else
+				{
+					retorno = false;
+				} 
+				
+			}
+			catch(Exception)
+			{
+				Console.WriteLine("Use apenas numeros");
+				Console.WriteLine("Aperte uma tecla");
 				Console.ReadKey();
-				goto retorno2;
 				
 			}
 		}
-		catch(Exception)
+		retorno = true;
+	
+	
+	
+	
+		
+		
+		
+		
+		
+		
+		while(alteracao <= NumPerg || retorno)
 		{
-			Console.WriteLine("Use apenas numeros");
-			Console.WriteLine("Aperte uma tecla");
-			Console.ReadKey();
-			goto retorno2;
-		}
-	
-	
-	
-	
-	
-	
-		
-		
-		
-		
-		
-		retorno3:
-		while(alteracao <= NumPerg || retorno == true)
-		{
-			Console.WriteLine("Escreva a nova pergunta");
+			Console.WriteLine("Reescreva a pergunta:");
 			perguntas[alteracao] = Console.ReadLine();
 			Console.WriteLine("Para alterar outra pergunta digite seu numero");
 			Console.WriteLine("Para não alterar mais nada digite 1000");
 			try
 			{
 				alteracao = int.Parse(Console.ReadLine());
-				Console.WriteLine("Use apenas os numeros a partir deeeeeeee");
-				Console.WriteLine("1 até {0}", NumPerg);
-				Console.ReadKey();
-				goto retorno3;
 				
+				if(alteracao < 0 || alteracao > NumPerg)
+				{
+					
+					Console.WriteLine("Use apenas os numeros a partir de");
+					Console.WriteLine("0 até {0}", NumPerg);	
+				}
+				else
+				{
+					
+				}
 				
 			}
-			catch
+			
+			catch(Exception)
 			{
 				Console.WriteLine("Use apenas numeros");
 				Console.WriteLine("Aperte uma tecla");
 				Console.ReadKey();
-				goto retorno3;
+				
 			}
 			
 			
 		}
+		retorno = true;
 		
 		
-		avanca: //
+		
+		
 		
 		p = 0; //retorna o vetor para a primeira posição
 		
