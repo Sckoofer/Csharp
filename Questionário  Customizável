@@ -12,7 +12,7 @@ class project
 		string[] respostas = new string[30];
 		int NumPerg = 0;
 		int alteracao = 1;
-		int g = 0, p = 0; //contadores
+		int p = 0; //contadores
 		
 	
 		
@@ -60,16 +60,18 @@ class project
 			alteracao = int.Parse(Console.ReadLine());
 		}
 		
-		g = 0; p = 0;
+		p = 0;
+		
 		Console.Clear();
+		
 		Console.WriteLine("Perguntas Finalizadas"); //Segunda tabela de perguntas
 		Console.WriteLine("-------------------------");
-		while( g < NumPerg)
+		for(int i = 0; i < NumPerg; i++) //Desmostra as perguntas feitas
 		{
-			Console.WriteLine("Pergunta numero {0}:\n{1}",p,perguntas[p]);
-			g++;
-			p++;
+			Console.WriteLine("Pergunta numero {0}:\n{1}",p,perguntas[p++]);
 		}
+		
+		
 		Console.ReadKey();
 		
 		
