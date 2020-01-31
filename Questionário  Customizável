@@ -8,29 +8,30 @@ class project
 	
 	static void Main()
 	{
-		string[] perguntas = new string[5];
-		string[] respostas = new string[5];
-		int NumPerg = 0;
-		int alteracao = 1;
-		int g = 0;
+			string[] perguntas = new string[5];
+			string[] respostas = new string[5];
+			int NumPerg = 0;
+			int alteracao = 1;
+			int g = 0, p = 0;
+		
+	
 		
 		
 		
-		
-		
-		Console.WriteLine("Nova versao");
-		Console.WriteLine("Digite em números quantas perguntas deseja fazer?");
-		NumPerg = int.Parse(Console.ReadLine());
+			Console.WriteLine("Nova versao");
+			Console.WriteLine("Digite em números quantas perguntas deseja fazer?");
+			NumPerg = int.Parse(Console.ReadLine());
 		
 		
 		
-		Console.Clear();
-		for(int i = 0; i < NumPerg; i++){ //loop para receber as perguntas
+			Console.Clear();
+			for(int i = 0; i < NumPerg; i++){ //loop para receber as perguntas
 			
 			if(i > 0){Console.WriteLine("Já pode digitar a próxima: ");}
+			
 			Console.WriteLine("Digite sua(s) pergunta(s)");
 			perguntas[i] = Console.ReadLine();
-		}
+			}
 		
 		
 		
@@ -38,99 +39,39 @@ class project
 			Console.Clear();
 			Console.WriteLine("Perguntas Finalizadas");
 			Console.WriteLine("-------------------------");
+			
 			while( g < NumPerg){
-				
-				int p = p++;
-				
-				Console.WriteLine("Pergunta numero {0}: {1}",p,perguntas[g]);
-				
+				Console.WriteLine("Pergunta numero {0}:\n{1}",p,perguntas[p]);
 				g++;
+				p++;
 			}
 
-			Console.WriteLine("Deseja alterar alguma? Digite 1 para SIM");
-			Console.WriteLine("Digite qualquer outro numero para NAO");
+			Console.WriteLine("Para alterar alguma pergunta, digite o número dela");
+			Console.WriteLine("Para não alterar nada, digite: 1000 e tecle enter");
 			alteracao = int.Parse(Console.ReadLine());
 			
-			if(alteracao == 1){
-				Console.WriteLine("Digite o numero da pergunta que deseja modificar");
+			
+			g = 0;
+			
+			while(alteracao <= NumPerg){
+				Console.WriteLine("Escreva a nova pergunta");
+				perguntas[alteracao] = Console.ReadLine();
+				Console.WriteLine("Para alterar outra pergunta digite seu numero");
+				Console.WriteLine("Para não alterar nada digite 1000");
 				alteracao = int.Parse(Console.ReadLine());
+			
 			}
+			
+		
 		
 	
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		/*
-		Console.WriteLine("Quantas repostas podem existir para a pergunta:");
-		
-		for(int i = 0; i < NumPerg; i++){
-			Console.WriteLine("{0}", perguntas[i]);
-			NumResp = int.Parse(Console.ReadLine());
-			while( g <= NumResp){
-				
-				respostas[g] = Console.ReadLine();
-				Console.WriteLine("Digite a proxima");
-				
-				g++;
-			}
-			
-			
-		}*/
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	/*	Console.WriteLine("Perguntas e Respostas finalizadas");
-		Console.WriteLine("---------------------------------");
-		for(int i = 0; i < NumPerg; i++){
-			Console.WriteLine("Pergunta número: {0} ", i+1);
-			Console.WriteLine(perguntas[i]);
-			
-			Console.WriteLine("Resposta número: {0} ", i+1);
-			for(int h = 0; h <= NumResp[i]; h++){
-				
-			Console.WriteLine(respostas[h]);
-			}
-		}*/
-		
+
 			
 	
-		Console.ReadKey();
+			
+	
+
+		
+
 	}
-
-
-
 }
