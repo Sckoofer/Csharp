@@ -1,4 +1,4 @@
-//Teste
+//Ranking
 using System;
 
 class proa
@@ -11,16 +11,33 @@ class proa
 		
 		
 		
-		while(loop < 5)
+		
+		
+		while(loop < 2)
 		{
+			
 			Console.WriteLine("Digite seu nome");
+			
 			nome[loop] = Console.ReadLine();
 			
 			
-			
+			retorno:
 			Console.WriteLine("Digite sua pontuação");
-			pontos[loop] = int.Parse(Console.ReadLine());
 			
+			try
+			{
+				pontos[loop] = int.Parse(Console.ReadLine());
+			}
+			
+			catch(Exception)
+			{
+				Console.WriteLine("---------------------");
+				Console.WriteLine("Digite Apenas Numeros");
+				Console.WriteLine("---------------------\n\n");
+				
+				
+				goto retorno;
+			}
 	
 			Console.WriteLine("\n\n");
 			
@@ -33,10 +50,10 @@ class proa
 		
 		
 		
-		Console.WriteLine("TABELA DE PONTOS");
-		Console.WriteLine("----------------");
+		Console.WriteLine("		TABELA DE PONTOS");
+		Console.WriteLine("		----------------");
 	
-		while(loop < 5)
+		while(loop < 2)
 		{
 			
 			Console.WriteLine("Nome: {0}", nome[loop]);
@@ -56,3 +73,4 @@ class proa
 	
 	} 
 }
+
