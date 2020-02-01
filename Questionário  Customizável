@@ -98,10 +98,10 @@ class project
 					retorno = false;
 				} 
 				
-				else if(alteracao < 0 || alteracao > NumPerg )
+				else if(alteracao < 0 || alteracao > p )
 				{
 					Console.WriteLine("Use apenas os numeros a partir de");
-					Console.WriteLine("0 até {0}", NumPerg);
+					Console.WriteLine("0 até {0}", p);
 					Console.WriteLine("Ou digite 1000 para sair");
 					Console.ReadKey();
 				}
@@ -128,10 +128,10 @@ class project
 		
 		
 		
+		////////////
 		
 		
-		
-		while(alteracao <= NumPerg || retorno)
+		while(alteracao <= p || retorno)
 		{
 			Console.WriteLine("Reescreva a pergunta:");
 			perguntas[alteracao] = Console.ReadLine();
@@ -141,16 +141,19 @@ class project
 			{
 				alteracao = int.Parse(Console.ReadLine());
 				
-				if(alteracao < 0 || alteracao > NumPerg)
+				if(alteracao == 1000)
+				{
+					retorno = false;
+				}
+				///
+				
+				else if (alteracao < 0 || alteracao > p )
 				{
 					
 					Console.WriteLine("Use apenas os numeros a partir de");
-					Console.WriteLine("0 até {0}", NumPerg);	
+					Console.WriteLine("0 até {0}", p);	
 				}
-				else
-				{
-					
-				}
+				
 				
 			}
 			
