@@ -1,0 +1,58 @@
+//Teste
+using System;
+
+class proa
+{
+	static void Main(){
+
+		string[] nome = new string[5];
+		int[] pontos = new int[5];
+		int loop = 0;
+		
+		
+		
+		while(loop < 5)
+		{
+			Console.WriteLine("Digite seu nome");
+			nome[loop] = Console.ReadLine();
+			
+			
+			
+			Console.WriteLine("Digite sua pontuação");
+			pontos[loop] = int.Parse(Console.ReadLine());
+			
+	
+			Console.WriteLine("\n\n");
+			
+			
+			
+			loop++;
+		}
+		loop = 0;
+		
+		
+		
+		
+		Console.WriteLine("TABELA DE PONTOS");
+		Console.WriteLine("----------------");
+	
+		while(loop < 5)
+		{
+			
+			Console.WriteLine("Nome: {0}", nome[loop]);
+			Console.WriteLine("Pontos: {0}", pontos[loop]);
+			
+			loop++;
+			
+			
+			
+		}
+		
+		
+		Console.ReadKey();
+		
+		
+		
+	
+	} 
+}
