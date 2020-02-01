@@ -48,22 +48,27 @@ class proa
 		loop = 0;
 		
 		
+		Console.Clear();
 		
+		Console.WriteLine("\n\n\n===================================");
+		Console.WriteLine("	  TABELA DE PONTOS");
+		Console.WriteLine("===================================\n\n\n");
 		
-		Console.WriteLine("		TABELA DE PONTOS");
-		Console.WriteLine("		----------------");
-	
+		Console.WriteLine("	  Nome          Pontos");
+		Console.WriteLine("-----------------------------------");
 		while(loop < 2)
 		{
 			
-			Console.WriteLine("Nome: {0}", nome[loop]);
-			Console.WriteLine("Pontos: {0}", pontos[loop]);
 			
-			loop++;
+			Console.Write("    	 {0}",nome[loop]);
+			Console.Write("  	   {0}",pontos[loop]);
+			Console.WriteLine("");
 			
 			
+			loop++;	
 			
 		}
+		Console.WriteLine("-----------------------------------");
 		
 		
 		Console.ReadKey();
