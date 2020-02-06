@@ -14,18 +14,29 @@ class project
 	
 	static void Main()
 	{
+		
 		string[] perguntas = new string[100];
 		string[] respostas = new string[100];
-		int NumPerg = 0;							
-		int alteracao = 1;							
-		int contador = 0; 									
+		
+		//numero de perguntas do usuário
+		int NumPerg = 0;
+		
+		// Altercação de perguntas
+		int alteracao = 1;
+		
+		//Demonstra a posição nos loops
+		int contador = 0;
+
+		//Executar um loop
 		bool retorno = true;
 		
 		
 	
 		
+		// Ponto de retorno do erro
+		retorno:
 		
-		retorno: // Ponto de retorno do erro
+		//Inicio
 		Console.Clear();
 		Console.WriteLine("Nova versao");
 		Console.WriteLine("Digite em números quantas perguntas deseja fazer:");
@@ -95,7 +106,7 @@ class project
 			Console.WriteLine("Para alterar alguma pergunta, digite o número dela");
 			try
 			{
-				Console.WriteLine("Para não alterar nada, digite: 1000 e tecle enteeeer");
+				Console.WriteLine("Para não alterar nada, digite: 1000 e tecle enter");
 				alteracao = int.Parse(Console.ReadLine());
 
 
@@ -136,17 +147,8 @@ class project
 			}
 		}
 		
-
-	
-	
-	
-	
 		
-		
-		
-		
-		
-		
+		//Loop para alterar uma pergunta
 		while(alteracao <= contador || retorno)
 		{
 			Console.WriteLine("Reescreva a pergunta:");
@@ -187,13 +189,18 @@ class project
 	
 		
 		
-		contador = 0; //retorna o vetor para a primeira posição
+		
+		//retorna o vetor para a primeira posição
+		contador = 0; 
 		
 		Console.Clear();
 		
-		Console.WriteLine("Perguntas Finalizadas e Salvas"); //Segunda tabela de perguntas
+		//Segunda tabela de perguntas, demonstra as perguntas feitas
+		Console.WriteLine("Perguntas Finalizadas e Salvas");
 		Console.WriteLine("-------------------------");
-		for(int i = 0; i < NumPerg; i++) //Desmostra as perguntas feitas
+		
+		
+		for(int i = 0; i < NumPerg; i++) 
 		{
 			Console.WriteLine("Pergunta numero {0}:\n{1}",contador,perguntas[contador++]);
 		}
