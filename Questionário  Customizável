@@ -10,6 +10,7 @@ Iniciado o desenvolvimento da interface em console
 
 using System;
 
+
 class project
 {	
 	
@@ -51,7 +52,9 @@ class project
 		Console.Write("\nPressione qualquer tecla para iniciar");
 		Console.ReadKey();
 		Console.Clear();
-		Console.WriteLine("Digite em números quantas perguntas deseja fazer:");
+		Console.WriteLine("=====================================");
+		Console.Write("Digite em números quantas perguntas \ndeseja fazer: ");
+		
 		
 		try //Tratamento de erros, Exception;
 		{
@@ -66,8 +69,10 @@ class project
 		}	
 		catch (Exception)
 		{
+			Console.WriteLine("++++++++++++++++++");
 			Console.WriteLine("Use apenas numeros");
 			Console.WriteLine("Aperte uma tecla");
+			Console.WriteLine("++++++++++++++++++");
 			Console.ReadKey();
 			goto retorno;
 		}
@@ -79,15 +84,19 @@ class project
 		Console.Clear();
 		for(int i = 0; i < NumPerg; i++) 
 		{ 
+			Console.WriteLine("=======================");
+			Console.WriteLine("= Digite sua pergunta =");
+			Console.WriteLine("=======================");
+			Console.WriteLine("\n-\n-\n-\n-\n");
 			
-			Console.WriteLine("Digite sua(s) pergunta(s)");
-			
-			if(i > 0)
-			{
-				Console.WriteLine("Já pode digitar a próxima:");
-			}
-			
+			Console.Write(">> ");
 			perguntas[i] = Console.ReadLine();
+			
+			Console.Clear();
+			Console.WriteLine("---------------------------------");
+			Console.WriteLine("- Pergunta número {0} armazenada -", i);
+			Console.WriteLine("---------------------------------\n\n");
+			
 			
 		}
 
@@ -95,13 +104,17 @@ class project
 
 
 		//Desmostra as perguntas feitas
-		Console.Clear(); 
-		Console.WriteLine("Perguntas Finalizadas"); 
-		Console.WriteLine("-------------------------");
+		Console.Clear();
+		Console.WriteLine("===============");
+		Console.WriteLine("= Finalização ="); 
+		Console.WriteLine("===============\n\n");
+		
 		for(int i = 0; i < NumPerg; i++)
 		{	
 			//contador é o valor que presenta a pergunta
+			Console.WriteLine("----------------------------------");
 			Console.WriteLine("Pergunta numero {0}:\n{1}",contador,perguntas[contador++]);
+			Console.WriteLine("\n\n->");
 		}
 
 		
