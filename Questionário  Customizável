@@ -6,6 +6,7 @@ Adicionado tratamento de erro em todas as entradas de pergutas (try, catch)
 Adicionado a opção de alteração de perguntas
 Adicionado goto para pular etapadas de tratamento de erros
 Iniciado o desenvolvimento da interface em console
+Layout quase finalizado
 */ 
 
 using System;
