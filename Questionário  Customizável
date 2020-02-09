@@ -6,7 +6,7 @@ Adicionado tratamento de erro em todas as entradas de pergutas (try, catch)
 Adicionado a opção de alteração de perguntas
 Adicionado goto para pular etapadas de tratamento de erros
 Iniciado o desenvolvimento da interface em console
-*/
+*/ 
 
 using System;
 
@@ -26,14 +26,13 @@ class project
 		// Altercação de perguntas
 		int alteracao = 1;
 		
-		//Demonstra a posição nos loops
-		int contador = 0;
+		
 
 		//Executar um loop
 		bool retorno = true;
 		
 		
-	
+		
 		
 		// Ponto de retorno do erro
 		retorno:
@@ -60,8 +59,7 @@ class project
 		{
 			NumPerg = int.Parse(Console.ReadLine()); //Aqui é definido a quantidade de perguntas
 			if(NumPerg <= 0 || NumPerg > 100){
-				Console.WriteLine("Os numeros devem ser maiores que 0");
-				Console.WriteLine("e devem ser menores que 101");
+				Console.WriteLine("Os números válidos são entre 1 à 100");
 				Console.WriteLine("Aperte uma tecla");
 				Console.ReadKey();
 				goto retorno;		
@@ -69,12 +67,19 @@ class project
 		}	
 		catch (Exception)
 		{
-			Console.WriteLine("++++++++++++++++++");
-			Console.WriteLine("Use apenas numeros");
-			Console.WriteLine("Aperte uma tecla");
-			Console.WriteLine("++++++++++++++++++");
+			Console.Clear();
+			Console.WriteLine("\n");
+			Console.WriteLine(" ++++++++ATENÇÃO+++++++");
+			Console.WriteLine(" + Use apenas numeros +");
+			Console.WriteLine(" ++++++++++++++++++++++");
+			Console.WriteLine("\n");
+			
+			Console.WriteLine("  Pressione uma tecla");
 			Console.ReadKey();
+			
+			
 			goto retorno;
+			
 		}
 		
 		
@@ -82,7 +87,7 @@ class project
 		
 		//Limpa a tela e começa o loop para receber as perguntas
 		Console.Clear();
-		for(int i = 0; i < NumPerg; i++) 
+		for(int i = 1; i <= NumPerg; i++) 
 		{ 
 			Console.WriteLine("=======================");
 			Console.WriteLine("= Digite sua pergunta =");
@@ -93,9 +98,9 @@ class project
 			perguntas[i] = Console.ReadLine();
 			
 			Console.Clear();
-			Console.WriteLine("---------------------------------");
-			Console.WriteLine("- Pergunta número {0} armazenada -", i);
-			Console.WriteLine("---------------------------------\n\n");
+			Console.WriteLine("---------------------------------------");
+			Console.WriteLine("-  A pergunta número {0} foi armazenada -", i);
+			Console.WriteLine("---------------------------------------\n\n");
 			
 			
 		}
@@ -105,16 +110,16 @@ class project
 
 		//Desmostra as perguntas feitas
 		Console.Clear();
-		Console.WriteLine("===============");
-		Console.WriteLine("= Finalização ="); 
-		Console.WriteLine("===============\n\n");
+		Console.WriteLine("========================================");
+		Console.WriteLine("= Todas as perguntas foram registradas ="); 
+		Console.WriteLine("========================================\n\n");
 		
-		for(int i = 0; i < NumPerg; i++)
+		for(int i = 1; i <= NumPerg; i++)
 		{	
-			//contador é o valor que presenta a pergunta
-			Console.WriteLine("----------------------------------");
-			Console.WriteLine("Pergunta numero {0}:\n{1}",contador,perguntas[contador++]);
-			Console.WriteLine("\n\n->");
+			Console.WriteLine("_______________________________________");
+			Console.WriteLine("Pergunta numero {0}:\n\n-> {1}",i,perguntas[i]);
+			Console.WriteLine("\n\n");
+			
 		}
 
 		
@@ -124,16 +129,17 @@ class project
 		
 		
 
-		//Altera a pergunta que o usuário desejar
+		//Permite ao usuário mudar a sua pergunta
 		while(retorno)
 		{
-			
-			Console.WriteLine("Para alterar alguma pergunta, digite o número dela");
+			Console.WriteLine("=============================");
+			Console.WriteLine("Para alterar alguma pergunta\ndigite apenas o número dela");
 			try
 			{
-				Console.WriteLine("Para não alterar nada, digite: 1000 e tecle enter");
+				Console.Write("Para não alterar nada, digite\n1000 e tecle enter\n\n->");
+				
+				
 				alteracao = int.Parse(Console.ReadLine());
-
 
 
 				//sai do loop se o usuário não quiser alterar nenhuma pergunta
@@ -145,11 +151,13 @@ class project
 				
 				
 				//retorna um erro se o numero inserido não representar uma pergunta
-				else if(alteracao < 0 || alteracao > contador )
+				else if(alteracao < 1 || alteracao > NumPerg )
 				{
+					Console.WriteLine("+++++++++++++++++++++++++++++++++");
 					Console.WriteLine("Use apenas os numeros a partir de");
-					Console.WriteLine("0 até {0}", contador);
+					Console.WriteLine("1 até {0}", NumPerg);
 					Console.WriteLine("Ou digite 1000 para sair");
+					Console.WriteLine("+++++++++++++++++++++++++++++++++");
 					Console.ReadKey();
 				}
 				
@@ -160,26 +168,42 @@ class project
 					retorno = false;
 				} 
 			}
-			
-			
+
 			//retorna um erro se o usuário não inserir um numero
 			catch(Exception)
 			{
-				Console.WriteLine("Use apenas numeros");
-				Console.WriteLine("Aperte uma tecla");
+				Console.Clear();
+				Console.WriteLine("\n");
+				Console.WriteLine(" ++++++++ATENÇÃO+++++++");
+				Console.WriteLine(" + Use apenas numeros +");
+				Console.WriteLine(" ++++++++++++++++++++++");
+				Console.WriteLine("\n");
+			
+				Console.WriteLine("  Pressione uma tecla");
+				
 				Console.ReadKey();
+				Console.Clear();
 				
 			}
 		}
 		
 		
+		
+		
+		
+		
+		
 		//Loop para alterar uma pergunta
-		while(alteracao <= contador || retorno)
-		{
-			Console.WriteLine("Reescreva a pergunta:");
+		while(alteracao <= NumPerg || retorno)
+		{	
+			Console.WriteLine("================================");
+			
+			Console.Write("= Reescreva a pergunta número {0}:\n\n-> ", alteracao);
+			
 			perguntas[alteracao] = Console.ReadLine();
-			Console.WriteLine("Para alterar outra pergunta digite seu numero");
-			Console.WriteLine("Para não alterar mais nada digite 1000");
+			Console.WriteLine("=================================");
+			Console.Write("Para alterar outra pergunta digite \nseu numero. ");
+			Console.Write("Para não alterar mais\nnada digite: 1000\n\n-> ");
 			try
 			{
 				alteracao = int.Parse(Console.ReadLine());
@@ -190,11 +214,12 @@ class project
 				}
 				
 				
-				else if (alteracao < 0 || alteracao > contador )
+				else if (alteracao < 1 || alteracao > NumPerg )
 				{
-					
+					Console.WriteLine("\n\n+++++++++++++++++++++++++++++++++");
 					Console.WriteLine("Use apenas os numeros a partir de");
-					Console.WriteLine("0 até {0}", contador);	
+					Console.WriteLine("1 até {0}", NumPerg);	
+					Console.WriteLine("+++++++++++++++++++++++++++++++++\n\n");
 				}
 				
 				
@@ -202,10 +227,16 @@ class project
 			
 			catch(Exception)
 			{
-				Console.WriteLine("Use apenas numeros");
-				Console.WriteLine("Aperte uma tecla");
+				Console.Clear();
+				Console.WriteLine("\n");
+				Console.WriteLine(" ++++++++ATENÇÃO+++++++");
+				Console.WriteLine(" + Use apenas numeros +");
+				Console.WriteLine(" ++++++++++++++++++++++");
+				Console.WriteLine("\n");
+			
+				Console.WriteLine("  Pressione uma tecla");
 				Console.ReadKey();
-				
+				Console.Clear();
 			}
 			
 			
@@ -215,19 +246,20 @@ class project
 		
 		
 		
-		//retorna o vetor para a primeira posição
-		contador = 0; 
+		
+		
 		
 		Console.Clear();
 		
 		//Segunda tabela de perguntas, demonstra as perguntas feitas
+		Console.WriteLine("==============================");
 		Console.WriteLine("Perguntas Finalizadas e Salvas");
-		Console.WriteLine("-------------------------");
+		Console.WriteLine("==============================");
 		
 		
-		for(int i = 0; i < NumPerg; i++) 
+		for(int i = 1; i <= NumPerg; i++) 
 		{
-			Console.WriteLine("Pergunta numero {0}:\n{1}",contador,perguntas[contador++]);
+			Console.WriteLine("Pergunta numero {0}:\n{1}",i,perguntas[i]);
 		}
 		
 		
