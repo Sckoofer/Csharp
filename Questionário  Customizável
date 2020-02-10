@@ -48,8 +48,12 @@ class project
 		Console.Write("\nPressione qualquer tecla para iniciar");
 		Console.ReadKey();
 		Console.Clear();
-		Console.WriteLine("=====================================");
-		Console.Write("Digite em números quantas perguntas \ndeseja fazer: ");
+		Console.WriteLine("\n\n===================================================");
+		Console.Write("Aqui você deve informar a quantidade  de perguntas\n");
+		Console.WriteLine("que deseja fazer. O valor máximo é 100\n");
+		Console.WriteLine("=================================================");
+		Console.Write("Digite em números quantas perguntas deseja fazer:\n-\n-\n-\n->");
+		
 		
 		
 		try //Tratamento de erros, Exception;
