@@ -6,7 +6,6 @@ Adicionado tratamento de erro em todas as entradas de pergutas (try, catch)
 Adicionado a opção de alteração de perguntas
 Adicionado goto para pular etapadas de tratamento de erros
 Iniciado o desenvolvimento da interface em console
-Layout quase finalizado
 */ 
 
 using System;
@@ -18,8 +17,8 @@ class project
 	static void Main()
 	{
 		
-		string[] perguntas = new string[100];
-		string[] respostas = new string[100];
+		string[] perguntas = new string[101];
+		string[] respostas = new string[101];
 		
 		//numero de perguntas do usuário
 		int NumPerg = 0;
@@ -27,7 +26,7 @@ class project
 		// Altercação de perguntas
 		int alteracao = 1;
 		
-		
+		int comparador = 0;
 
 		//Executar um loop
 		bool retorno = true;
@@ -42,12 +41,9 @@ class project
 		Console.Clear();
 		Console.WriteLine("=========================================");
 		Console.WriteLine("Esse questionário é a versão mais recente");
-		Console.WriteLine("do antigo em C++");
-		Console.WriteLine("\nEle oferece opções customizáveis para o");
-		Console.WriteLine("entrevistador\n");
-		Console.WriteLine("Também oferece um sistema de ranking com");
-		Console.WriteLine("os participantes que mais se adequam aos");
-		Console.WriteLine("aos padõres de um perfil");
+		Console.WriteLine("do antigo que foi feito em C++");
+		Console.WriteLine("\nCom ele o entrevistador cria as próprias");
+		Console.WriteLine("perguntas que serão usadas no questionário\n");
 		Console.Write("=========================================\n\n");
 		Console.Write("\nPressione qualquer tecla para iniciar");
 		Console.ReadKey();
@@ -61,7 +57,7 @@ class project
 			NumPerg = int.Parse(Console.ReadLine()); //Aqui é definido a quantidade de perguntas
 			if(NumPerg <= 0 || NumPerg > 100){
 				Console.WriteLine("Os números válidos são entre 1 à 100");
-				Console.WriteLine("Aperte uma tecla");
+				Console.WriteLine("Pressione uma tecla");
 				Console.ReadKey();
 				goto retorno;		
 			}
@@ -123,7 +119,7 @@ class project
 			
 		}
 
-		
+		comparador = alteracao;
 	
 	
 		
@@ -133,11 +129,20 @@ class project
 		//Permite ao usuário mudar a sua pergunta
 		while(retorno)
 		{
-			Console.WriteLine("=============================");
-			Console.WriteLine("Para alterar alguma pergunta\ndigite apenas o número dela");
+			if(comparador != alteracao)
+				{
+					Console.WriteLine("_______________________");
+					Console.WriteLine("A pergunta foi alterada");
+					Console.WriteLine("_______________________");
+				}
+			
+			
+			
+			Console.WriteLine("========================================================");
+			Console.WriteLine("Para alterar alguma pergunta digite apenas o número dela");
 			try
 			{
-				Console.Write("Para não alterar nada, digite\n1000 e tecle enter\n\n->");
+				Console.Write("Para não alterar nada, digite 1000 e tecle enter\n\n->");
 				
 				
 				alteracao = int.Parse(Console.ReadLine());
@@ -203,7 +208,7 @@ class project
 			
 			perguntas[alteracao] = Console.ReadLine();
 			Console.WriteLine("=================================");
-			Console.Write("Para alterar outra pergunta digite \nseu numero. ");
+			Console.Write("Para alterar outra pergunta digite seu numero. ");
 			Console.Write("Para não alterar mais\nnada digite: 1000\n\n-> ");
 			try
 			{
