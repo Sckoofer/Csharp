@@ -26,7 +26,7 @@ class project
 		// Altercação de perguntas
 		int alteracao = 1;
 		
-		int comparador = 0;
+		
 
 		//Executar um loop
 		bool retorno = true;
@@ -34,25 +34,30 @@ class project
 		
 		
 		
-		// Ponto de retorno do erro
-		retorno:
+		
 		
 		//Inicio
 		Console.Clear();
-		Console.WriteLine("=========================================");
-		Console.WriteLine("Esse questionário é a versão mais recente");
+		Console.WriteLine("============================================");
+		Console.WriteLine("Esse questionário é a  versão mais  recente");
 		Console.WriteLine("do antigo que foi feito em C++");
-		Console.WriteLine("\nCom ele o entrevistador cria as próprias");
-		Console.WriteLine("perguntas que serão usadas no questionário\n");
-		Console.Write("=========================================\n\n");
-		Console.Write("\nPressione qualquer tecla para iniciar");
+		Console.WriteLine("\nCom ele  o entrevistador  pode  montar as");
+		Console.WriteLine("perguntas e opções disponíveis de resposta\n");
+		Console.Write("===========================================\n\n");
+		Console.Write("\nPressione qualquer tecla para iniciar\n");
 		Console.ReadKey();
+		
+
+		// Ponto de retorno do erro de entrada
+		retorno:
 		Console.Clear();
-		Console.WriteLine("\n\n===================================================");
-		Console.Write("Aqui você deve informar a quantidade  de perguntas\n");
-		Console.WriteLine("que deseja fazer. O valor máximo é 100\n");
+		
+		
 		Console.WriteLine("=================================================");
-		Console.Write("Digite em números quantas perguntas deseja fazer:\n-\n-\n-\n->");
+		Console.WriteLine("Você deve especificar em números a quantidade");
+		Console.WriteLine("(A quantidade máxima aceita é de 100 perguntas)");
+		Console.WriteLine("=================================================\n\n");
+		Console.Write("  Quantas perguntas deseja fazer?\n\n-\n-\n-\n-> ");
 		
 		
 		
@@ -60,8 +65,10 @@ class project
 		{
 			NumPerg = int.Parse(Console.ReadLine()); //Aqui é definido a quantidade de perguntas
 			if(NumPerg <= 0 || NumPerg > 100){
+				Console.WriteLine("------------------------------------");
 				Console.WriteLine("Os números válidos são entre 1 à 100");
-				Console.WriteLine("Pressione uma tecla");
+				Console.WriteLine("------------------------------------");
+				Console.WriteLine("	Pressione uma tecla");
 				Console.ReadKey();
 				goto retorno;		
 			}
@@ -123,7 +130,7 @@ class project
 			
 		}
 
-		comparador = alteracao;
+		
 	
 	
 		
@@ -133,12 +140,7 @@ class project
 		//Permite ao usuário mudar a sua pergunta
 		while(retorno)
 		{
-			if(comparador != alteracao)
-				{
-					Console.WriteLine("_______________________");
-					Console.WriteLine("A pergunta foi alterada");
-					Console.WriteLine("_______________________");
-				}
+			
 			
 			
 			
@@ -182,7 +184,7 @@ class project
 			//retorna um erro se o usuário não inserir um numero
 			catch(Exception)
 			{
-				Console.Clear();
+				
 				Console.WriteLine("\n");
 				Console.WriteLine(" ++++++++ATENÇÃO+++++++");
 				Console.WriteLine(" + Use apenas numeros +");
@@ -206,16 +208,14 @@ class project
 		//Loop para alterar uma pergunta
 		while(alteracao <= NumPerg || retorno)
 		{	
-			Console.WriteLine("================================");
-			
-			Console.Write("= Reescreva a pergunta número {0}:\n\n-> ", alteracao);
-			
-			perguntas[alteracao] = Console.ReadLine();
-			Console.WriteLine("=================================");
-			Console.Write("Para alterar outra pergunta digite seu numero. ");
-			Console.Write("Para não alterar mais\nnada digite: 1000\n\n-> ");
 			try
-			{
+			{	
+				Console.WriteLine("================================");
+				Console.Write("= Reescreva a pergunta número {0}:\n\n-> ", alteracao);
+				perguntas[alteracao] = Console.ReadLine();
+				Console.WriteLine("=================================");
+				Console.Write("Para alterar outra pergunta digite seu numero. ");
+				Console.Write("Para não alterar mais\nnada digite: 1000\n\n-> ");
 				alteracao = int.Parse(Console.ReadLine());
 				
 				if(alteracao == 1000)
@@ -237,7 +237,7 @@ class project
 			
 			catch(Exception)
 			{
-				Console.Clear();
+				
 				Console.WriteLine("\n");
 				Console.WriteLine(" ++++++++ATENÇÃO+++++++");
 				Console.WriteLine(" + Use apenas numeros +");
@@ -246,7 +246,7 @@ class project
 			
 				Console.WriteLine("  Pressione uma tecla");
 				Console.ReadKey();
-				Console.Clear();
+				
 			}
 			
 			
