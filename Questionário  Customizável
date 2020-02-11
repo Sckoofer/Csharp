@@ -23,6 +23,14 @@ class project
 		//numero de perguntas do usuário
 		int NumPerg = 0;
 		
+		//numero de perguntas respostas para cada pergunta
+		int NumResp = 0;
+		
+		int LimiteResp = 0;
+		
+		//contador
+		int Cont = 1;
+		
 		// Altercação de perguntas
 		int alteracao = 1;
 		
@@ -252,11 +260,6 @@ class project
 			
 		}
 
-	
-		
-		
-		
-		
 		
 		
 		Console.Clear();
@@ -264,21 +267,107 @@ class project
 		//Segunda tabela de perguntas, demonstra as perguntas feitas
 		Console.WriteLine("==============================");
 		Console.WriteLine("Perguntas Finalizadas e Salvas");
-		Console.WriteLine("==============================");
+		Console.WriteLine("==============================\n\n");
 		
 		
 		for(int i = 1; i <= NumPerg; i++) 
 		{
+			
 			Console.WriteLine("Pergunta numero {0}:\n{1}",i,perguntas[i]);
+			Console.WriteLine("-------------------------");
 		}
 		
 		
 		Console.ReadKey();
+		retorno = true;
+		////////////////////////////////////////////////////
+		////////////////////////////////////////////////////
+		////////////////////////////////////////////////////
+		////////////////////////////////////////////////////
+		//Respostas////////////////////////////////////////
 		
+		
+		
+		
+		Console.WriteLine("=====================================================");
+		Console.WriteLine("= Para cada pergunta uma resposta, ou um conjunto   =");
+		Console.WriteLine("= de respostas será vinculado à ela. Assim como as  =");
+		Console.WriteLine("= perguntas as respostas também podem ser alteradas =");
+		Console.WriteLine("=====================================================");
+	
+		Console.WriteLine("\n	Digite uma tecla para continuar");
+		
+		Console.ReadKey();
+		Console.Clear();
+		
+		
+		while(retorno)
+		{	
+		
+			Console.WriteLine("\n\n\n");
+			Console.WriteLine("=================================");
+			Console.WriteLine("	Para a pergunta:\n", perguntas[Cont]);
+			Console.WriteLine("---------------------------------");
+			Console.WriteLine("Quantas respostas ela poderá ter?");
+			Console.WriteLine("Digite em números a quantidade, o");
+			Console.WriteLine("numero limite de respostas é 100");
+			Console.WriteLine("---------------------------------");
+			Console.Write("-\n-\n-\n-\n-> ");
+			
+			try
+			{
+				NumResp = int.Parse(Console.ReadLine());
+				
+				if(NumResp <= 0)
+				{
+					Console.WriteLine("+++++++++++++++++++++++++++++++++");
+					Console.WriteLine("+ O número inserido não é válido");
+					Console.WriteLine("+ O valor deve ser maior que 0");
+					Console.WriteLine("+++++++++++++++++++++++++++++++++");
+					
+					Console.WriteLine("Pressione uma tecla para continuar");
+					
+					Console.ReadKey();
+				}
+				else
+				{
+					retorno = false;
+				}
+				
+				while(LimiteResp <= NumResp)
+				{
+					Console.WriteLine("==================================");
+					Console.WriteLine("Digite a resposta para a pergunta:");
+					Console.WriteLine("{0}", perguntas[Cont]);
+					Console.Write("-\n-\n-\n-\n-> ");
+					respostas[Cont] = Console.ReadLine();
+					
+				}
+				
+				
+				
+				
+				Cont++;
+			}
+			catch(Exception)
+			{
+				Console.WriteLine("|++++++++++++++++++++++++++++++++++|");
+				Console.WriteLine("| Você deve inserir apenas números |");
+				Console.WriteLine("|++++++++++++++++++++++++++++++++++|");
+				Console.WriteLine("Pressione uma tecla para continuar");
+				Console.ReadKey();
+			}
+			
+			
+			
+	
+		}
 		
 	
-
 		
-
 	}
+
+	
+	
+	
 }
