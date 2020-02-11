@@ -1,11 +1,12 @@
 /*Esse questionário permite ao usuário a criação de sua próprias
-perguntas e respostas. (30% concluído)
+perguntas e respostas. (45% concluído)
 
 Atualizações:
 Adicionado tratamento de erro em todas as entradas de pergutas (try, catch)
 Adicionado a opção de alteração de perguntas
 Adicionado goto para pular etapadas de tratamento de erros
 Iniciado o desenvolvimento da interface em console
+Iniciado a sessão de respostas vinculadas à perguntas
 */ 
 
 using System;
