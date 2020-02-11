@@ -133,7 +133,7 @@ class project
 		
 		for(int i = 1; i <= NumPerg; i++)
 		{	
-			Console.WriteLine("_______________________________________");
+			Console.WriteLine("_______________________________________\n");
 			Console.WriteLine("Pergunta numero {0}:\n\n-> {1}",i,perguntas[i]);
 			Console.WriteLine("\n\n");
 			
@@ -153,11 +153,12 @@ class project
 			
 			
 			
-			Console.WriteLine("========================================================");
-			Console.WriteLine("Para alterar alguma pergunta digite apenas o número dela");
+			Console.WriteLine("==========================================");
+			Console.WriteLine("Para alterar alguma pergunta digite apenas"); 
+			Console.Write("apenas o número dela.");
 			try
 			{
-				Console.Write("Para não alterar nada, digite 1000 e tecle enter\n\n->");
+				Console.Write("Para não alterar nada\ndigite 1000 e tecle ENTER\n\n->");
 				
 				
 				alteracao = int.Parse(Console.ReadLine());
@@ -266,18 +267,18 @@ class project
 		Console.Clear();
 		
 		//Segunda tabela de perguntas, demonstra as perguntas feitas
-		Console.WriteLine("==============================");
-		Console.WriteLine("Perguntas Finalizadas e Salvas");
-		Console.WriteLine("==============================\n\n");
+		Console.WriteLine("====================================");
+		Console.WriteLine("== Perguntas Finalizadas e Salvas ==");
+		Console.WriteLine("====================================\n\n");
 		
 		
 		for(int i = 1; i <= NumPerg; i++) 
 		{
 			
-			Console.WriteLine("Pergunta numero {0}:\n{1}",i,perguntas[i]);
-			Console.WriteLine("-------------------------");
+			Console.WriteLine("Pergunta numero {0}:\n\n{1}\n",i,perguntas[i]);
+			Console.WriteLine("-------------------------------");
 		}
-		
+		Console.WriteLine("\nDigite uma tecla para continuar");
 		
 		Console.ReadKey();
 		retorno = true;
@@ -287,8 +288,8 @@ class project
 		////////////////////////////////////////////////////
 		//Respostas////////////////////////////////////////
 		
-		
-		
+		retorno = true;
+		Console.Clear();
 		
 		Console.WriteLine("=====================================================");
 		Console.WriteLine("= Para cada pergunta uma resposta, ou um conjunto   =");
@@ -305,9 +306,8 @@ class project
 		while(retorno)
 		{	
 		
-			Console.WriteLine("\n\n\n");
 			Console.WriteLine("=================================");
-			Console.WriteLine("	Para a pergunta:\n", perguntas[Cont]);
+			Console.WriteLine("	Para a pergunta:\n\n{0}\n", perguntas[Cont]);
 			Console.WriteLine("---------------------------------");
 			Console.WriteLine("Quantas respostas ela poderá ter?");
 			Console.WriteLine("Digite em números a quantidade, o");
@@ -338,7 +338,7 @@ class project
 				while(LimiteResp <= NumResp)
 				{
 					Console.WriteLine("==================================");
-					Console.WriteLine("Digite a resposta para a pergunta:");
+					Console.WriteLine("\nDigite a resposta para a pergunta:");
 					Console.WriteLine("{0}", perguntas[Cont]);
 					Console.Write("-\n-\n-\n-\n-> ");
 					respostas[Cont] = Console.ReadLine();
