@@ -1,10 +1,11 @@
 /*Esse questionário permite ao usuário a criação de sua próprias
 perguntas e respostas. (45% concluído)
 
+!!!!!!CONTÉM ERROS A PARTIR DA DECLARAÇÃO DAS RESPOSTAS!!!!!!!!!!!!!!!!
+
 Atualizações:
 Adicionado tratamento de erro em todas as entradas de pergutas (try, catch)
 Adicionado a opção de alteração de perguntas
-Adicionado goto para pular etapadas de tratamento de erros
 Iniciado o desenvolvimento da interface em console
 Iniciado a sessão de respostas vinculadas à perguntas
 */ 
@@ -27,7 +28,7 @@ class project
 		//numero de perguntas respostas para cada pergunta
 		int NumResp = 0;
 		
-		int LimiteResp = 0;
+		int ContadorDeRespostas = 0;
 		
 		//contador
 		int Cont = 1;
@@ -40,19 +41,19 @@ class project
 		//Executar um loop
 		bool retorno = true;
 		
-		
+		//goto avancar;
 		
 		
 		
 		
 		//Inicio
 		Console.Clear();
-		Console.WriteLine("============================================");
-		Console.WriteLine("Esse questionário é a  versão mais  recente");
-		Console.WriteLine("do antigo que foi feito em C++");
-		Console.WriteLine("\nCom ele  o entrevistador  pode  montar as");
-		Console.WriteLine("perguntas e opções disponíveis de resposta\n");
-		Console.Write("===========================================\n\n");
+		Console.WriteLine("===============================================");
+		Console.WriteLine("- Esse questionário é a  versão mais  recente -");
+		Console.WriteLine("- do antigo que foi feito em C++              -");
+		Console.WriteLine("-\n- Com ele  o entrevistador  pode  montar as   -");
+		Console.WriteLine("- suas perguntas  e  também  suas  respostas  -");
+		Console.Write("===============================================\n\n");
 		Console.Write("\nPressione qualquer tecla para iniciar\n");
 		Console.ReadKey();
 		
@@ -79,7 +80,7 @@ class project
 				Console.WriteLine("------------------------------------");
 				Console.WriteLine("	Pressione uma tecla");
 				Console.ReadKey();
-				goto retorno;		
+				//goto retorno;		
 			}
 		}	
 		catch (Exception)
@@ -152,13 +153,13 @@ class project
 			
 			
 			
-			
-			Console.WriteLine("==========================================");
-			Console.WriteLine("Para alterar alguma pergunta digite apenas"); 
-			Console.Write("apenas o número dela.");
+			Console.WriteLine("\n\n");
+			Console.WriteLine("===========================================");
+			Console.WriteLine(" Para alterar alguma pergunta digite apenas"); 
+			Console.Write(" o número dela.");
 			try
 			{
-				Console.Write("Para não alterar nada\ndigite 1000 e tecle ENTER\n\n->");
+				Console.Write(" Para não alterar nada\n digite 1000 e tecle ENTER\n\n->");
 				
 				
 				alteracao = int.Parse(Console.ReadLine());
@@ -177,7 +178,7 @@ class project
 				{
 					Console.WriteLine("+++++++++++++++++++++++++++++++++");
 					Console.WriteLine("Use apenas os numeros a partir de");
-					Console.WriteLine("1 até {0}", NumPerg);
+					Console.Write("1 até {0}. ", NumPerg);
 					Console.WriteLine("Ou digite 1000 para sair");
 					Console.WriteLine("+++++++++++++++++++++++++++++++++");
 					Console.ReadKey();
@@ -224,8 +225,8 @@ class project
 				Console.Write("= Reescreva a pergunta número {0}:\n\n-> ", alteracao);
 				perguntas[alteracao] = Console.ReadLine();
 				Console.WriteLine("=================================");
-				Console.Write("Para alterar outra pergunta digite seu numero. ");
-				Console.Write("Para não alterar mais\nnada digite: 1000\n\n-> ");
+				Console.Write("Para alterar outra pergunta digite\nseu numero.");
+				Console.Write(" Para não alterar mais\nnada digite: 1000\n\n-> ");
 				alteracao = int.Parse(Console.ReadLine());
 				
 				if(alteracao == 1000)
@@ -310,8 +311,8 @@ class project
 			Console.WriteLine("	Para a pergunta:\n\n{0}\n", perguntas[Cont]);
 			Console.WriteLine("---------------------------------");
 			Console.WriteLine("Quantas respostas ela poderá ter?");
-			Console.WriteLine("Digite em números a quantidade, o");
-			Console.WriteLine("numero limite de respostas é 100");
+			Console.WriteLine("Digite em números a quantidade. O"  );
+			Console.WriteLine("limite  é  de  5  respostas."  );
 			Console.WriteLine("---------------------------------");
 			Console.Write("-\n-\n-\n-\n-> ");
 			
@@ -319,36 +320,27 @@ class project
 			{
 				NumResp = int.Parse(Console.ReadLine());
 				
-				if(NumResp <= 0)
+				if(NumResp <= 0 || NumResp > 5)
 				{
 					Console.WriteLine("+++++++++++++++++++++++++++++++++");
 					Console.WriteLine("+ O número inserido não é válido");
 					Console.WriteLine("+ O valor deve ser maior que 0");
+					Console.WriteLine("+ O valor deve ser menor que 5");
 					Console.WriteLine("+++++++++++++++++++++++++++++++++");
 					
 					Console.WriteLine("Pressione uma tecla para continuar");
 					
 					Console.ReadKey();
 				}
+				
+				
 				else
 				{
 					retorno = false;
 				}
-				
-				while(LimiteResp <= NumResp)
-				{
-					Console.WriteLine("==================================");
-					Console.WriteLine("\nDigite a resposta para a pergunta:");
-					Console.WriteLine("{0}", perguntas[Cont]);
-					Console.Write("-\n-\n-\n-\n-> ");
-					respostas[Cont] = Console.ReadLine();
-					
-				}
-				
-				
-				
-				
-				Cont++;
+		
+		
+			
 			}
 			catch(Exception)
 			{
@@ -356,13 +348,68 @@ class project
 				Console.WriteLine("| Você deve inserir apenas números |");
 				Console.WriteLine("|++++++++++++++++++++++++++++++++++|");
 				Console.WriteLine("Pressione uma tecla para continuar");
-				Console.ReadKey();
+				Console.ReadKey(); 
 			}
 			
 			
 			
 	
 		}
+		
+		
+		
+		
+		Cont = 0;
+		
+		while(Cont <= NumPerg)
+		{
+			Console.WriteLine("==================================");
+			Console.WriteLine("\nPara a pergunta: ");
+			Console.WriteLine("{0}", perguntas[Cont++]);
+			
+			while(ContadorDeRespostas <= NumResp)
+			{	
+				Console.WriteLine("\nDigite a resposta");
+				Console.Write("-\n-\n-\n-\n-> ");
+				respostas[ContadorDeRespostas++] = Console.ReadLine();
+				Console.WriteLine("--------------------------------");
+				Console.WriteLine("----A resposta {0} foi salva----", ContadorDeRespostas);
+				Console.WriteLine("--------------------------------");
+			}
+			
+			Console.Clear();
+			
+		}
+		
+		
+		
+		
+		Cont = 0;
+		ContadorDeRespostas = 0;
+		
+		while(Cont <= NumPerg)
+		{
+			Cont++;
+			Console.WriteLine("************************************");
+			Console.WriteLine("Finalização das perguntas e repostas");
+			Console.WriteLine("\nA pergunta numero {0}:", Cont);
+			Console.WriteLine("{0}\n\n", perguntas[Cont]);
+			
+			while(ContadorDeRespostas <= NumResp)
+			{	
+				
+				Console.WriteLine("Tem como resposta as seguintes sentenças:");
+				Console.WriteLine(respostas[ContadorDeRespostas++]);
+				
+			}
+			Console.WriteLine("....................................");
+			
+		}
+		
+		
+		
+		Console.ReadKey();
+		
 		
 	
 		
