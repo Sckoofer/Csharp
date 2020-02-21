@@ -304,6 +304,7 @@ class project
 		Console.Clear();
 		
 		
+		
 		while(retorno)
 		{	
 		
@@ -359,51 +360,64 @@ class project
 		
 		
 		
-		Cont = 0;
+		Cont = 1;
 		
-		while(Cont <= NumPerg)
+		while(Cont < NumPerg)
 		{
 			Console.WriteLine("==================================");
-			Console.WriteLine("\nPara a pergunta: ");
-			Console.WriteLine("{0}", perguntas[Cont++]);
+			
+			Console.WriteLine("\n------Para a pergunta----------\n");
+			Console.WriteLine(perguntas[Cont]);
 			
 			while(ContadorDeRespostas <= NumResp)
 			{	
-				Console.WriteLine("\nDigite a resposta");
+				Console.WriteLine("\n  Digite a resposta:");
 				Console.Write("-\n-\n-\n-\n-> ");
 				respostas[ContadorDeRespostas++] = Console.ReadLine();
 				Console.WriteLine("--------------------------------");
 				Console.WriteLine("----A resposta {0} foi salva----", ContadorDeRespostas);
 				Console.WriteLine("--------------------------------");
+				Console.ReadKey();
 			}
 			
-			Console.Clear();
 			
+			Cont++;
 		}
 		
 		
 		
 		
-		Cont = 0;
+		
+		
+		
+		
+		
+		
+		
+		//finalização
+		
+		
+		Console.Clear();
+		
+		Cont = 0 + 1;
+		
 		ContadorDeRespostas = 0;
 		
-		while(Cont <= NumPerg)
+		while(Cont < NumPerg)
 		{
-			Cont++;
 			Console.WriteLine("************************************");
-			Console.WriteLine("Finalização das perguntas e repostas");
 			Console.WriteLine("\nA pergunta numero {0}:", Cont);
-			Console.WriteLine("{0}\n\n", perguntas[Cont]);
+			Console.WriteLine("{0}", perguntas[Cont]);
+			Console.WriteLine("Tem como resposta as seguintes sentenças:");
 			
 			while(ContadorDeRespostas <= NumResp)
 			{	
-				
-				Console.WriteLine("Tem como resposta as seguintes sentenças:");
 				Console.WriteLine(respostas[ContadorDeRespostas++]);
 				
 			}
 			Console.WriteLine("....................................");
 			
+			Cont++;
 		}
 		
 		
