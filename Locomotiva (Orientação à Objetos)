@@ -1,73 +1,122 @@
-//Controle de recursos
-
 using System;
 
-namespace Trem
+namespace Locomotiva
 {   
-    public class rec
+    //Tela principal, resumo em da situação geral
+    class quadro_geral
     {
-        public static void recursos()
+        static void Main()
         {
-            fogo elemento_fogo = new fogo();
-            esfriar elemento_agua = new esfriar();
-            vapor elemento_vapor = new vapor();
-
-            elemento_fogo.carvao       = 10;
-            elemento_agua.agua         = 11;
-            elemento_vapor.combustivel = 12;
-
-            Console.WriteLine("---------RECURSOS---------");
-            Console.Write("\nQuantidade de carvão -> ");
-            Console.WriteLine(elemento_fogo.carvao);
-            Console.Write("\nNivel da água        -> ");
-            Console.WriteLine(elemento_agua.agua);
-            Console.Write("\nPressão do vapor     -> ");
-            Console.WriteLine(elemento_vapor.combustivel);
-            Console.WriteLine("\n---------------------------");
-            Console.ReadKey();
-
-        }
-    }
+            Console.WriteLine("Locomotiva:");
 
 
-    public class funcionamento
-    {
-        public static void Main()
-        {
 
-            rec.recursos(); //Condição atual dos recursos
+            //Condição atual dos recursos
+            recursos_locomotiva.display_recursos_locomotiva();
 
+
+            //Condição física da locomotiva em geral
+            status_locomotiva.display_status_locomotiva();
             
-
-
         }
     }
 
 
 
-    public class fogo
-    {
-        public int carvao;
-        public fogo(){
-            carvao = 0;
-        }
 
-    }
-    public class esfriar
-    {
-        public int agua;
-        public esfriar(){
-            agua = 0;
-        }
-    }
-    public class vapor
-    {
-        public int combustivel;
 
-        public vapor()
+
+    public class status_locomotiva
+    {
+        public bool acesa;
+        public int  cilindro, quadro_eletrico, farol_frontal,luzes_cabine;
+        public int  quant_rodas, roda_1, roda_2,roda_3,roda_4, roda_5, roda_6;
+        status_locomotiva()
         {
-            combustivel = 0;
+            acesa = false;
+            cilindro = 100;
+            quadro_eletrico = 100;
+            farol_frontal = 100;
+            luzes_cabine = 100;
+            quant_rodas = 6;
+            roda_1 = 100;
+            roda_2 = 100;
+            roda_3 = 100;
+            roda_4 = 100;
+            roda_5 = 100;
+            roda_6 = 100;
+            
+        }
+        public static void display_status_locomotiva()
+        {
+            status_locomotiva info_gerais = new status_locomotiva();
+            Console.WriteLine("--------Informações gerais-------");
+
+            Console.WriteLine("Estado da fornalha");
+            Console.WriteLine(info_gerais.acesa);
+
+            Console.WriteLine("Condições do cilindro");
+            Console.WriteLine(info_gerais.cilindro);
+            
+            Console.WriteLine("Situação elétrica geral");
+            Console.WriteLine(info_gerais.quadro_eletrico);
+
+            Console.WriteLine("Situação elétrica: Farol Frontal");
+            Console.WriteLine(info_gerais.farol_frontal);
+
+            Console.WriteLine("Situação elétrica: Luzes da cabine");
+            Console.WriteLine(info_gerais.luzes_cabine);
+
+            Console.WriteLine("Situação mecânica: Quantidade de Rodas Ativadas");
+            Console.WriteLine(info_gerais.quant_rodas);
+
+            Console.WriteLine("Situação mecânica: Estado Físico Individual de Cada Roda");
+            Console.WriteLine("Roda 1 " + info_gerais.roda_1);
+            Console.WriteLine("Roda 2 " + info_gerais.roda_2);
+            Console.WriteLine("Roda 3 " + info_gerais.roda_3);
+            Console.WriteLine("Roda 4 " + info_gerais.roda_4);
+            Console.WriteLine("Roda 5 " + info_gerais.roda_5);
+            Console.WriteLine("Roda 6 " + info_gerais.roda_6);
+            Console.ReadKey();
         }
     }
     
+
+
+
+
+
+    public class recursos_locomotiva
+    {
+        public int carvao, fogo,agua,vapor;
+        public recursos_locomotiva()
+        {   
+           carvao   = 0;
+           fogo     = 0;
+           agua     = 0;
+           vapor    = 0;
+        }
+        public static void display_recursos_locomotiva()
+        {
+            recursos_locomotiva  quant_rec = new  recursos_locomotiva();
+            
+            Console.WriteLine("---------RECURSOS---------");
+
+            Console.Write("\nQuantidade de carvão -> ");
+            Console.WriteLine(quant_rec.carvao);
+
+            Console.Write("\nIncremento do fogo   -> ");
+            Console.WriteLine(quant_rec.fogo);
+
+            Console.Write("\nNivel da água        -> ");
+            Console.WriteLine(quant_rec.agua);
+
+
+            Console.Write("\nPressão do vapor     -> ");
+            Console.WriteLine(quant_rec.vapor);
+            
+            Console.WriteLine("\n--------------------------");
+            Console.ReadKey();
+        }
+    }
 }
