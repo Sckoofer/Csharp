@@ -7,7 +7,7 @@ namespace Locomotiva
     {
         static void Main()
         {
-            Console.WriteLine("Locomotiva:");
+            Console.WriteLine("\n  Locomotiva\n________________\n\n");
 
 
 
@@ -50,33 +50,46 @@ namespace Locomotiva
         public static void display_status_locomotiva()
         {
             status_locomotiva info_gerais = new status_locomotiva();
-            Console.WriteLine("--------Informações gerais-------");
+            Console.WriteLine("\n\n\n\n");
+            Console.WriteLine("--------Informações gerais-------\n");
 
-            Console.WriteLine("Estado da fornalha");
+            Console.Write("Estado da fornalha: ");
             Console.WriteLine(info_gerais.acesa);
+            Console.WriteLine("- - - - - - - - - - - - -\n");
 
-            Console.WriteLine("Condições do cilindro");
+            Console.Write("Condições do cilindro: ");
             Console.WriteLine(info_gerais.cilindro);
+            Console.WriteLine("- - - - - - - - - - - - - -\n");
             
-            Console.WriteLine("Situação elétrica geral");
+            Console.Write("Situação elétrica geral: ");
             Console.WriteLine(info_gerais.quadro_eletrico);
+            Console.WriteLine("- - - - - - - - - - - - - - -\n");
 
-            Console.WriteLine("Situação elétrica: Farol Frontal");
+            Console.Write("Situação elétrica: Farol Frontal: ");
             Console.WriteLine(info_gerais.farol_frontal);
+            Console.WriteLine("- - - - - - - - - - - - - - - - - - -\n");
 
-            Console.WriteLine("Situação elétrica: Luzes da cabine");
+            Console.Write("Situação elétrica: Luzes da cabine: ");
             Console.WriteLine(info_gerais.luzes_cabine);
+            Console.WriteLine("- - - - - - - - - - - - - - - - - - - -\n");
 
-            Console.WriteLine("Situação mecânica: Quantidade de Rodas Ativadas");
+            Console.Write("Situação mecânica; Quantidade de Rodas Ativadas: ");
             Console.WriteLine(info_gerais.quant_rodas);
+            Console.WriteLine("- - - - - - - - - - - - - - - - - - - - - - - - - -\n");
+            
 
-            Console.WriteLine("Situação mecânica: Estado Físico Individual de Cada Roda");
-            Console.WriteLine("Roda 1 " + info_gerais.roda_1);
-            Console.WriteLine("Roda 2 " + info_gerais.roda_2);
-            Console.WriteLine("Roda 3 " + info_gerais.roda_3);
-            Console.WriteLine("Roda 4 " + info_gerais.roda_4);
-            Console.WriteLine("Roda 5 " + info_gerais.roda_5);
-            Console.WriteLine("Roda 6 " + info_gerais.roda_6);
+            Console.WriteLine("Situação mecânica: Estado Físico Individual das Rodas");
+            Console.WriteLine("Lado direto    -      Lado esquerdo");
+            Console.Write("Roda 1: " + info_gerais.roda_1);
+            Console.WriteLine("           Roda 2: " + info_gerais.roda_2);
+
+            Console.Write("Roda 3: " + info_gerais.roda_2);
+            Console.WriteLine("           Roda 4: " + info_gerais.roda_2);
+            
+            Console.Write("Roda 5: " + info_gerais.roda_2);
+            Console.WriteLine("           Roda 6: " + info_gerais.roda_2);
+
+            
             Console.ReadKey();
         }
     }
