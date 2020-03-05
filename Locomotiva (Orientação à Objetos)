@@ -1,0 +1,73 @@
+//Controle de recursos
+
+using System;
+
+namespace Trem
+{   
+    public class rec
+    {
+        public static void recursos()
+        {
+            fogo elemento_fogo = new fogo();
+            esfriar elemento_agua = new esfriar();
+            vapor elemento_vapor = new vapor();
+
+            elemento_fogo.carvao       = 10;
+            elemento_agua.agua         = 11;
+            elemento_vapor.combustivel = 12;
+
+            Console.WriteLine("---------RECURSOS---------");
+            Console.Write("\nQuantidade de carvão -> ");
+            Console.WriteLine(elemento_fogo.carvao);
+            Console.Write("\nNivel da água        -> ");
+            Console.WriteLine(elemento_agua.agua);
+            Console.Write("\nPressão do vapor     -> ");
+            Console.WriteLine(elemento_vapor.combustivel);
+            Console.WriteLine("\n---------------------------");
+            Console.ReadKey();
+
+        }
+    }
+
+
+    public class funcionamento
+    {
+        public static void Main()
+        {
+
+            rec.recursos(); //Condição atual dos recursos
+
+            
+
+
+        }
+    }
+
+
+
+    public class fogo
+    {
+        public int carvao;
+        public fogo(){
+            carvao = 0;
+        }
+
+    }
+    public class esfriar
+    {
+        public int agua;
+        public esfriar(){
+            agua = 0;
+        }
+    }
+    public class vapor
+    {
+        public int combustivel;
+
+        public vapor()
+        {
+            combustivel = 0;
+        }
+    }
+    
+}
