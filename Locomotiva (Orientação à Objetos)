@@ -133,3 +133,61 @@ namespace Locomotiva
         }
     }
 }
+
+
+
+
+
+
+/*
+===== Teste de gasto! ======
+using System;
+
+namespace intro1
+{
+	
+	class gastar
+	{
+		static void Main()
+		{
+			bool loop1 = true;
+			int decisao = 0, km = 0, destino = 100;
+			recursos obj = new recursos();
+			
+			while(loop1)
+			{
+
+				Console.WriteLine("Para mover para frente digite 1");
+				decisao = int.Parse(Console.ReadLine());
+				if(decisao == 1)
+				{
+					km++;
+					obj.vapor = obj.vapor - 2;
+					destino--;
+					Console.WriteLine("Você avançou {0} kilometros", km);
+					Console.WriteLine("Você tem {0} de pressão em vapor no cilindro", obj.vapor);
+					Console.WriteLine("-->Aperte uma tecla para continuar");
+					Console.ReadKey();
+					Console.Clear();
+				}
+				
+				
+			}
+
+
+		}
+	}
+
+	public class recursos
+	{
+		public int vapor;
+		
+		public recursos()
+		{
+			vapor = 100;
+		}
+
+				
+	}
+
+}
